@@ -1,0 +1,10 @@
+.carousel-item video {
+  height: 150vh;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 10px;
+}
