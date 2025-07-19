@@ -1,5 +1,5 @@
 const Hero = () => (
-  <section id="home" className="bg-primary text-white text-center py-5">
+  <section id="home" className="bg-primary bg-dark text-white text-center py-5">
     <div className="container">
       <h1 className="display-4 fw-bold">ANOKIF EXPRESS SERVICES LIMITED</h1>
       <p className="lead">Licensed Customs Logistics Agency</p>

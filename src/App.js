@@ -1,56 +1,36 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import VideoCarousel from './components/VideoCarousel';
-import Services from './components/Services';
-import WhatWeDo from './components/WhatWeDo';
+import Footer from './pages/Footer';
+import Home from './pages/Home';
+import Services from './pages/Services';
 
-const App = () => {
+
+
+
+
+
+
+function App() {
   return (
-    <>
-    <Navbar/>
-    
-     
-    <div>
-      <header className="text-white text-center bg-dark py-3">
-        <h1>Anokif Express Services Limited</h1>
-        <p>Licensed Customs Agency – Logistics, Haulage, Warehousing, Import & Export</p>
-      </header>
-
-      <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active position-relative">
-            <img
-              src="/plane.png" // Place the plane image in public folder
-              className="d-block w-100"
-              alt="Plane offloading goods"
-            />
-            <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
-              <h2 className="text-light">Fast & Reliable Logistics Services</h2>
-              <p>We specialize in international freight, customs clearance, warehousing and general merchandise.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <VideoCarousel />
-
+    <Router>
+      <Navbar />
       
-
-      <Services/>
-
-      <WhatWeDo/>
-
-      <footer className="bg-dark text-white text-center py-3 rounded-top">
-        <p>&copy; {new Date().getFullYear()} Anokif Express Services Limited</p>
-      </footer>
-    </div>
-    
-    </>
+      
+      <div className="app-content">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
+      </div>
+      
+      
+      <Footer />
+    </Router>
   );
-};
+}
 
 export default App;
+
 
 

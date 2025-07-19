@@ -3,14 +3,14 @@ import './VideoCarousel.css';
 
 const VideoCarousel = () => {
   return (
-    <div id="videoCarousel" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <video className="d-block w-100" autoPlay loop muted>
+    <div id="videoCarousel" className="carousel slide " data-bs-ride="carousel ">
+      <div className="carousel-inner ">
+        <div className="carousel-item active ">
+          <video className="d-block w-100 " autoPlay loop muted>
             <source src="/videos/air-freight.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="carousel-caption d-none d-md-block">
+          <div className="carousel-caption d-none d-md-block ">
             <h5>Air Freight Services</h5>
             <p>Efficient global delivery via air cargo.</p>
           </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -24,9 +26,10 @@ const Navbar = () => {
         </button>
         <div className={`collapse navbar-collapse ${open ? 'show' : ''}`}>
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item"><a className="nav-link" href="#about">About</a></li>
-            <li className="nav-item"><a className="nav-link" href="#services">Services</a></li>
-            <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
+            <li className="nav-item"><Link className="nav-link" to="/">HOME</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/services">SERVICES</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/contact">CONTACT</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/contact">ABOUT</Link></li>
           </ul>
         </div>
       </div>

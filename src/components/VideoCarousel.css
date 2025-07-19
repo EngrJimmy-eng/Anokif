@@ -1,10 +1,19 @@
 .carousel-item video {
   height: 150vh;
   object-fit: cover;
+  width: 100vw;
+  overflow: hidden;
+  
 }
 
 .carousel-caption {
   background: rgba(0, 0, 0, 0.4);
   padding: 1rem;
   border-radius: 10px;
+}
+
+.position-absolute{
+  object-fit: cover;
+  width: 100;
+
 }
