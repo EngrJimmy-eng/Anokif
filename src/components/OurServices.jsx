@@ -30,7 +30,7 @@ const services = [
 const OurServices = () => {
   return (
     <section className="container my-5">
-      <h2 className="text-center text-warning mb-4"></h2>
+      <h2 className="text-center text-warning mb-4">Our Services</h2>
       <div className="row g-4">
         {services.map((service, index) => (
           <div key={index} className="col-md-6 col-lg-4">
