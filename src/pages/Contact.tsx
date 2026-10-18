@@ -1,88 +1,96 @@
-import React from 'react';
-import { FaWhatsapp, FaXTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa6';
+import {
+  FaWhatsapp,
+  FaXTwitter,
+  FaInstagram,
+  FaFacebookF,
+} from 'react-icons/fa6';
 import ContactMap from '../components/ContactMap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import warehouseImage from '../assets/warehouse.jpg';
-
 import ContactSection from '../components/ContactSection';
-
-
-<ContactMap />
-
 
 const Contact = () => {
   return (
-    <div>
-     {/* Carousel */}
-      <div id="servicesCarousel" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner" style={{ height: "70vh", overflow: "hidden" }}>
-          <div className="carousel-item active position-relative h-100">
-            <img src={warehouseImage} className="d-block w-100 h-100" alt="Cargo Ship" style={{ objectFit: "cover" }} />
-            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
-            <div className="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
-              <h2 className="text-warning">Contact Us</h2>
-              
-            </div>
-          </div>
+    <main>
+      <section className="relative h-[50vh] min-h-[320px] max-h-[600px] overflow-hidden bg-gray-950 sm:h-[60vh]">
+        <img
+          src={warehouseImage}
+          alt="Warehouse supporting Anokif Express cargo operations"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-black/50"
+        />
+
+        <div className="relative z-10 flex h-full items-center justify-center px-4 text-center">
+          <h1 className="text-3xl font-bold text-amber-400 sm:text-4xl lg:text-5xl">
+            Contact Us
+          </h1>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 py-12 text-center sm:py-16">
+        <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+          Connect With Us
+        </h2>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-5">
+          <a
+            href="https://wa.me/2348035772161"
+            aria-label="Contact us on WhatsApp"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-green-600 text-white transition hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaWhatsapp size={24} aria-hidden="true" />
+          </a>
+
+          <a
+            href="https://twitter.com/Paul_anya"
+            aria-label="Follow us on X"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 text-white transition hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaXTwitter size={24} aria-hidden="true" />
+          </a>
+
+          <a
+            href="https://instagram.com/paul_anyaoko"
+            aria-label="Follow us on Instagram"
+            className="flex h-12 w-12 items-center justify-center rounded-full text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, #feda75, #d62976, #962fbf)',
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram size={24} aria-hidden="true" />
+          </a>
+
+          <a
+            href="https://facebook.com/Paul%20Anya%20Oko"
+            aria-label="Visit us on Facebook"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-700 text-white transition hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebookF size={24} aria-hidden="true" />
+          </a>
         </div>
-    
-    <div className="container text-center py-5">
-      <h2 className="mb-4">Contact Us</h2>
-      <div className="d-flex justify-content-center gap-4">
 
-        {/* WhatsApp */}
-        <a
-          href="https://wa.me/2348035772161"
-          className="btn btn-success rounded-circle"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaWhatsapp size={24} />
-        </a>
+        <div className="mt-12">
+          <ContactMap />
+        </div>
 
-        {/* X (Twitter) */}
-        <a
-          href="https://twitter.com/Paul_anya"
-          className="btn btn-dark rounded-circle"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaXTwitter size={24} />
-        </a>
-
-        {/* Instagram */}
-        <a
-          href="https://instagram.com/paul_anyaoko"
-          className="btn btn-danger rounded-circle"
-          style={{ backgroundImage: "linear-gradient(to right, #feda75, #d62976, #962fbf)", color: "#fff", border: "none" }}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram size={24} />
-        </a>
-
-        {/* Facebook */}
-        <a
-          href="https://facebook.com/Paul Anya Oko"
-          className="btn btn-primary rounded-circle"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaFacebookF size={24} />
-        </a>
-
-      </div>
-      <ContactMap/>
-      <ContactSection/>
-    </div>
-    
-
-</div>
+        <div className="mt-12 text-left">
+          <ContactSection />
+        </div>
+      </section>
+    </main>
   );
 };
 
 export default Contact;
-
-
-
