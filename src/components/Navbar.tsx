@@ -18,7 +18,7 @@ const Navbar = () => {
           onClick={closeMenu}
         >
           <img
-            src="/anokiflogo2.png"
+            src="/anokiflogo2.webp"
             alt="ANOKIF Logo"
             width="150"
             height="70"
