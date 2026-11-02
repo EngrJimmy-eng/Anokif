@@ -5,7 +5,7 @@ const slides = [
   {
     title: 'Air Freight Services',
     description: 'Efficient global delivery via air cargo.',
-    video: '/videos/air-freight.mp4',
+    video: '/videos/air-freight-500k.mp4',
   },
   {
     title: 'Sea Freight Services',
