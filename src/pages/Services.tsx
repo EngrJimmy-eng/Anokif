@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import shipImage from '../assets/ship.webp';
+import shipImage from '../assets/ship.jpg';
 import planeImage from '../assets/plane.jpg';
 import warehouseImage from '../assets/warehouse.jpg';
 import SecondCarousel from '../components/SecondCarousel';
