@@ -3,9 +3,11 @@ name: Anokif CI
 on:
   push:
     branches:
+      - main
       - modernization
   pull_request:
     branches:
+      - main
       - modernization
   workflow_dispatch:
 
