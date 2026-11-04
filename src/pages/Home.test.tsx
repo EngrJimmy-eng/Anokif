@@ -35,7 +35,7 @@ describe('Home page', () => {
       within(carousel).getByRole('img', {
         name: 'Anokif Express plane offloading cargo',
       }),
-    ).toHaveAttribute('src', '/planeoffloading2.jpeg');
+    ).toHaveAttribute('src', '/logo192.png');
   });
 
   it('moves to the next slide', () => {
