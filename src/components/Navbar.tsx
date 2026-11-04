@@ -20,8 +20,8 @@ const Navbar = () => {
           <img
             src="/anokiflogo2.png"
             alt="ANOKIF Logo"
-            width="150"
-            height="70"
+            width="110"
+            height="52"
             className="navbar-logo shrink-0"
           />
           <span className="text-sm font-bold sm:text-base">
