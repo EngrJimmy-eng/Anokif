@@ -31,7 +31,7 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="navbar-toggler rounded p-2 text-white md:hidden"
+          className="navbar-toggler ml-auto rounded p-2 text-white md:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={open}
