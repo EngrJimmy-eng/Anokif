@@ -6,7 +6,7 @@ import Hero from '../components/Hero';
 
 const slides = [
   {
-    image: '/logo192.png',
+    image: '/hero-plane.png',
     alt: 'Anokif Express plane offloading cargo',
     title: 'Clearing & Forwarding',
     description: 'Efficient cargo handling and forwarding worldwide.',
