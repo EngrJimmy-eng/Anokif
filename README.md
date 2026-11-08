@@ -22,7 +22,7 @@ The website combines responsive layouts, service sections, image/video carousels
 - Responsive service and content sections
 - React Icons for interface elements
 - Client-side routing with React Router
-- Netlify deployment configuration
+- Cloudflare Pages deployment
 - SPA fallback routing for deployed pages
 
 🛠️ Technology Stack
@@ -30,10 +30,12 @@ The website combines responsive layouts, service sections, image/video carousels
 Frontend
 
 - React 19
-- JavaScript (ES6+)
-- React Router
-- React Bootstrap
-- Bootstrap 5
+- TypeScript
+- Vite 8
+- React Router 7
+- Redux Toolkit
+- React Redux
+- Tailwind CSS 4
 - React Icons
 - Keen Slider
 - Leaflet
@@ -42,70 +44,79 @@ Frontend
 
 Testing
 
-The project includes the React Testing Library ecosystem for frontend testing:
+The project uses Vitest and the React Testing Library ecosystem:
 
+- Vitest
 - Testing Library React
 - Testing Library DOM
 - Testing Library Jest DOM
 - Testing Library User Event
+- JSDOM
 
 Deployment
 
-- Netlify
-- Node.js 20 build environment
-- Create React App production build
+- Cloudflare Pages
+- Node.js 20 or compatible version
+- Vite production build
+- Build command: npm run build
+- Build output directory: dist
 
 🏗️ Application Structure
 
-The application is organized into reusable React components and page-level components.
+The application uses a modular React and TypeScript architecture.
 
 Anokif/
 ├── public/
 │   ├── _redirects
 │   ├── anokiflogo2.png
 │   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
 │   ├── lorry.jpg
+│   ├── manifest.json
 │   ├── planeoffloading2.jpeg
 │   ├── warehouse.jpg
-│   ├── manifest.json
-│   └── robots.txt
+│   └── videos/
 │
 ├── src/
+│   ├── app/
+│   │   ├── hooks.ts
+│   │   └── store.ts
+│   │
 │   ├── assets/
-│   │   ├── plane.jpg
 │   │   ├── ship.jpg
 │   │   └── warehouse.jpg
 │   │
 │   ├── components/
-│   │   ├── About.jsx
-│   │   ├── Contact.jsx
-│   │   ├── ContactMap.jsx
-│   │   ├── ContactSection.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Navbar.jsx
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   ├── ContactMap.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Navbar.tsx
 │   │   ├── Navbar.css
-│   │   ├── OurServices.jsx
-│   │   ├── SecondCarousel.jsx
-│   │   ├── VideoCarousel.jsx
-│   │   ├── VideoCarousel.css
-│   │   └── WhatWeDo.jsx
+│   │   ├── OurServices.tsx
+│   │   ├── SecondCarousel.tsx
+│   │   ├── VideoCarousel.tsx
+│   │   └── WhatWeDo.tsx
+│   │
+│   ├── features/
+│   │   └── notifications/
+│   │       └── notificationSlice.ts
 │   │
 │   ├── pages/
-│   │   ├── About.js
-│   │   ├── Contact.js
-│   │   ├── Footer.js
-│   │   ├── Home.js
-│   │   └── Services.js
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Home.tsx
+│   │   └── Services.tsx
 │   │
 │   ├── App.css
-│   ├── App.js
+│   ├── App.tsx
 │   ├── index.css
-│   └── index.js
+│   ├── index.tsx
+│   ├── test-setup.ts
+│   └── vite-env.d.ts
 │
 ├── .gitignore
-├── netlify.toml
 ├── package.json
 ├── package-lock.json
 └── README.md
@@ -177,30 +188,22 @@ Current routes include:
  /contact
  /about
 
-Because this is a single-page React application, Netlify is configured to redirect application routes back to "index.html".
+Because this is a single-page React application, Cloudflare Pages serves the application and handles client-side route fallback.
 
 ☁️ Deployment
 
-The project includes a "netlify.toml" configuration for production deployment.
+The project is configured for production deployment using Cloudflare Pages.
 
-[build]
-  command = "npm run build"
-  publish = "build"
+Cloudflare Pages build settings:
 
-[build.environment]
-  NODE_VERSION = "20"
+- Framework preset: Vite
+- Build command: npm run build
+- Build output directory: dist
+- Node.js version: 20 or a compatible version
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+Cloudflare Pages automatically supports SPA routing when no top-level 404.html file is present.
 
-This configuration:
-
-- Builds the application using "npm run build"
-- Publishes the generated "build" directory
-- Uses Node.js 20 for the build environment
-- Enables SPA routing on Netlify
+The production build is generated in the dist directory.
 
 💻 Local Development
 
@@ -224,11 +227,11 @@ npm install
 
 Start the development server:
 
-npm start
+npm run dev
 
 The application will normally be available at:
 
-http://localhost:3000
+http://localhost:5173
 
 🏭 Production Build
 
@@ -238,7 +241,7 @@ npm run build
 
 The production files are generated inside:
 
-build/
+dist/
 
 🧪 Testing
 
@@ -250,13 +253,13 @@ The project includes Testing Library packages for building and testing React com
 
 📦 Available Scripts
 
-Command| Purpose
-"npm start"| Start the development server
-"npm test"| Run the test suite
-"npm run build"| Create a production build
-"npm run eject"| Eject from Create React App configuration
-
-«"npm run eject" is an irreversible Create React App operation and is generally unnecessary unless direct configuration control is required.»
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start the Vite development server |
+| `npm test` | Run the Vitest test suite |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run typecheck` | Check TypeScript types |
 
 🔐 Engineering Considerations
 
