@@ -17,37 +17,19 @@ vi.mock('../components/WhatWeDo', () => ({
 
 import Home from './Home';
 
-describe('Home page', () => {
-  it('displays the initial carousel slide', () => {
-    render(<Home />);
+function renderCarousel() {
+  render(<Home />);
 
-    const carousel = screen.getByRole('region', {
-      name: 'Anokif Express services',
-    });
-
-    expect(
-      within(carousel).getByRole('heading', {
-        name: 'Clearing & Forwarding',
-      }),
-    ).toBeInTheDocument();
-
-    expect(
-      within(carousel).getByRole('img', {
-        name: 'Anokif Express plane offloading cargo',
-      }),
-    ).toHaveAttribute('src', '/hero-plane.png');
+  const carousel = screen.getByRole('region', {
+    name: 'Anokif Express services',
   });
 
-  it('moves to the next slide', () => {
-    render(<Home />);
+  return { carousel };
+}
 
-    const carousel = screen.getByRole('region', {
-      name: 'Anokif Express services',
-    });
-
-    userEvent.click(
-      within(carousel).getByRole('button', { name: 'Next slide' }),
-    );
+describe('Home page', () => {
+  it('displays the initial Warehousing slide', () => {
+    const { carousel } = renderCarousel();
 
     expect(
       within(carousel).getByRole('heading', {
@@ -62,14 +44,32 @@ describe('Home page', () => {
     ).toHaveAttribute('src', '/warehouse.jpg');
   });
 
-  it('moves to the previous slide and wraps around', () => {
-    render(<Home />);
+  it('moves to the next Haulage slide', async () => {
+    const { carousel } = renderCarousel();
 
-    const carousel = screen.getByRole('region', {
-      name: 'Anokif Express services',
-    });
+    await userEvent.click(
+      within(carousel).getByRole('button', {
+        name: 'Next slide',
+      }),
+    );
 
-    userEvent.click(
+    expect(
+      within(carousel).getByRole('heading', {
+        name: 'Haulage Services',
+      }),
+    ).toBeInTheDocument();
+
+    expect(
+      within(carousel).getByRole('img', {
+        name: 'Anokif Express haulage truck',
+      }),
+    ).toHaveAttribute('src', '/lorry.jpg');
+  });
+
+  it('moves to the previous slide and wraps around', async () => {
+    const { carousel } = renderCarousel();
+
+    await userEvent.click(
       within(carousel).getByRole('button', {
         name: 'Previous slide',
       }),
@@ -81,29 +81,27 @@ describe('Home page', () => {
       }),
     ).toBeInTheDocument();
 
-    userEvent.click(
-      within(carousel).getByRole('button', { name: 'Next slide' }),
+    await userEvent.click(
+      within(carousel).getByRole('button', {
+        name: 'Next slide',
+      }),
     );
 
     expect(
       within(carousel).getByRole('heading', {
-        name: 'Clearing & Forwarding',
+        name: 'Warehousing',
       }),
     ).toBeInTheDocument();
   });
 
-  it('selects a slide using its indicator', () => {
-    render(<Home />);
+  it('selects a slide using its indicator', async () => {
+    const { carousel } = renderCarousel();
 
-    const carousel = screen.getByRole('region', {
-      name: 'Anokif Express services',
+    const indicator = within(carousel).getByRole('button', {
+      name: 'Show slide 2: Haulage Services',
     });
 
-    userEvent.click(
-      within(carousel).getByRole('button', {
-        name: 'Show slide 3: Haulage Services',
-      }),
-    );
+    await userEvent.click(indicator);
 
     expect(
       within(carousel).getByRole('heading', {
@@ -111,10 +109,6 @@ describe('Home page', () => {
       }),
     ).toBeInTheDocument();
 
-    expect(
-      within(carousel).getByRole('button', {
-        name: 'Show slide 3: Haulage Services',
-      }),
-    ).toHaveAttribute('aria-current', 'true');
+    expect(indicator).toHaveAttribute('aria-current', 'true');
   });
 });

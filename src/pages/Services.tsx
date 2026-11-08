@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import shipImage from '../assets/ship.jpg';
-import planeImage from '../assets/plane.jpg';
 import warehouseImage from '../assets/warehouse.jpg';
 import SecondCarousel from '../components/SecondCarousel';
 import OurServices from '../components/OurServices';
@@ -12,12 +11,6 @@ const slides = [
     description: 'Moving your goods safely across seas and continents.',
     image: shipImage,
     imageAlt: 'Cargo ship',
-  },
-  {
-    title: 'Air Freight Services',
-    description: 'Swift air cargo delivery worldwide.',
-    image: planeImage,
-    imageAlt: 'Cargo plane',
   },
   {
     title: 'Warehousing & Haulage',

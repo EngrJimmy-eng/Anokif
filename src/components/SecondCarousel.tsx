@@ -2,16 +2,9 @@ import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import planeImage from '../assets/plane.jpg';
 import warehouseImage from '../assets/warehouse.jpg';
 
 const slides = [
-  {
-    image: planeImage,
-    imageAlt: 'Cargo plane transporting freight',
-    title: 'Efficient Cargo Forwarding',
-    showContactButton: true,
-  },
   {
     image: warehouseImage,
     imageAlt: 'Warehouse for storing cargo',
